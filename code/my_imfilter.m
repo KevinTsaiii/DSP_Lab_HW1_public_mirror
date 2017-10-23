@@ -25,10 +25,39 @@ function output = my_imfilter(image, filter)
 % % computation. It might be slow.
 % output = imfilter(image, filter);
 
-%%%%%%%%%%%%%%%%
-% Your code here
-%%%%%%%%%%%%%%%%
+R_in(:,:) = image(:,:,1);
+G_in(:,:) = image(:,:,2);
+B_in(:,:) = image(:,:,3);
 
-%%%%%%%%%%%%%%%%
-% Your code end
-%%%%%%%%%%%%%%%%
+[i_height, i_width, i_channel] = size(image);
+
+[f_height, f_width] = size(filter);
+
+R_out = zeros(i_height, i_width);
+B_out = zeros(i_height, i_width);
+G_out = zeros(i_height, i_width);
+
+R_pad = zeros(i_height + f_height, i_width + f_width);
+B_pad = zeros(i_height + f_height, i_width + f_width);
+G_pad = zeros(i_height + f_height, i_width + f_width);
+
+R_pad(1+(f_height-1)/2:i_height+(f_height-1)/2, 1+(f_width-1)/2:i_width+(f_width-1)/2) = R_in;
+G_pad(1+(f_height-1)/2:i_height+(f_height-1)/2, 1+(f_width-1)/2:i_width+(f_width-1)/2) = G_in;
+B_pad(1+(f_height-1)/2:i_height+(f_height-1)/2, 1+(f_width-1)/2:i_width+(f_width-1)/2) = B_in;
+
+for m = 1:i_height
+   for n = 1:i_width
+       
+       for k = 1:f_height
+           for l = 1:f_width
+               R_out(m, n) = R_out(m, n) + filter(k, l)*R_pad(m+k, n+l);
+               G_out(m, n) = G_out(m, n) + filter(k, l)*G_pad(m+k, n+l);
+               B_out(m, n) = B_out(m, n) + filter(k, l)*B_pad(m+k, n+l);
+           end
+       end
+   end
+end
+
+output(:,:,1) = R_out;
+output(:,:,2) = G_out;
+output(:,:,3) = B_out;
