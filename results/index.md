@@ -9,34 +9,42 @@ The project is related to image filtering and hybird images.
 
 ## Implementation
 1. ```my_imfilter```
-	* item
-<img src="../1.PNG" width="24%"/>
+	* <img src="../1.PNG" width="24%"/>
+	* Expand the original image with padding for the filtering process
+	* Then preform the formula
+
+		 <pre><code>for m = 1:i_height
+		   for n = 1:i_width
+		       
+		       for k = 1:f_height
+		           for l = 1:f_width
+		               R_out(m, n) = R_out(m, n) + filter(k, l)*R_pad(m+k, n+l);
+		               G_out(m, n) = G_out(m, n) + filter(k, l)*G_pad(m+k, n+l);
+		               B_out(m, n) = B_out(m, n) + filter(k, l)*B_pad(m+k, n+l);
+		           end
+		       end
+		   end
+		end</code></pre>
 
 2. ```proj1```
-
-
-## Installation
-* Other required packages.
-* How to compile from source?
+	* Use ```my_imfilter``` to implement Gaussian filter
+	* Remove high frequency component to obtain ```low_frequencies```
+	* Remove low frequency component to obtain ```high_frequencies```
+	* Combine ```low_frequencies``` and ```high_frequencies``` to create ```hybrid_image```
+	* <pre><code>hybrid_image = low_frequencies + high_frequencies;</code></pre>
 
 ### Results
 
 <table border=1>
 <tr>
 <td>
-<img src="placeholder.jpg" width="24%"/>
-<img src="placeholder.jpg" width="24%"/>
-<img src="placeholder.jpg" width="24%"/>
-<img src="placeholder.jpg" width="24%"/>
+<img src="../results/image1/hybrid_image_scales.jpg" width="24%"/>
 </td>
 </tr>
 
 <tr>
 <td>
-<img src="placeholder.jpg" width="24%"/>
-<img src="placeholder.jpg"  width="24%"/>
-<img src="placeholder.jpg" width="24%"/>
-<img src="placeholder.jpg" width="24%"/>
+<img src="../results/image2/hybrid_image_scales.jpg" width="24%"/>
 </td>
 </tr>
 
