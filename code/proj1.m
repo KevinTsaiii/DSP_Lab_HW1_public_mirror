@@ -10,8 +10,12 @@ close all; % closes all figures
 
 %% Setup
 % read images and convert to floating point format
+
 image1 = im2single(imread('../data/dog.bmp'));
 image2 = im2single(imread('../data/cat.bmp'));
+
+%image1 = im2single(imread('../data/fish.bmp'));
+%image2 = im2single(imread('../data/submarine.bmp'));
 
 % Several additional test cases are provided for you, but feel free to make
 % your own (you'll need to align the images in a photo editor such as
@@ -51,13 +55,15 @@ high_frequencies = image2 - my_imfilter(image2, filter);
 % Combine the high frequencies and low frequencies
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 hybrid_image = low_frequencies + high_frequencies;%(image1 + image2 - min(image1 + image2))/(max(image1 + image2)-min(image1 + image2));
-hybrid_image = (hybrid_image-min(hybrid_image(:)))/(max(hybrid_image(:))-min(hybrid_image(:)));
+%normalized_hybrid_image = (hybrid_image-min(hybrid_image(:)))/(max(hybrid_image(:))-min(hybrid_image(:)));
 
 %% Visualize and save outputs
 figure(1); imshow(low_frequencies);
 figure(2); imshow(high_frequencies + 0.5);
 vis = vis_hybrid_image(hybrid_image);
 figure(3); imshow(vis);
+%figure(4); imshow(hybrid_image);
+%figure(5); imshow(normalized_hybrid_image);
 imwrite(low_frequencies, 'low_frequencies.jpg', 'quality', 95);
 imwrite(high_frequencies + 0.5, 'high_frequencies.jpg', 'quality', 95);
 imwrite(hybrid_image, 'hybrid_image.jpg', 'quality', 95);

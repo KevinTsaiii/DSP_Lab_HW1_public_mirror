@@ -1,21 +1,19 @@
-# Your Name <span style="color:red">(yout cs id)</span>
+# 蔡介豪 <span style="color:red">(103061101)</span>
 
-# Project 1 / Image Filtering and Hybrid Images
+# DSP Lab HW 1 / Image Filtering and Hybrid Images
 
 ## Overview
-The project is related to 
-> quote
+The project is related to image filtering and hybird images.
+
 
 
 ## Implementation
-1. One
+1. ```my_imfilter```
 	* item
-	* item
-2. Two
+<img src="../1.PNG" width="24%"/>
 
-```
-Code highlights
-```
+2. ```proj1```
+
 
 ## Installation
 * Other required packages.
@@ -27,7 +25,7 @@ Code highlights
 <tr>
 <td>
 <img src="placeholder.jpg" width="24%"/>
-<img src="placeholder.jpg"  width="24%"/>
+<img src="placeholder.jpg" width="24%"/>
 <img src="placeholder.jpg" width="24%"/>
 <img src="placeholder.jpg" width="24%"/>
 </td>
