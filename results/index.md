@@ -34,18 +34,12 @@ The project is related to image filtering and hybird images.
 	* <pre><code>hybrid_image = low_frequencies + high_frequencies;</code></pre>
 
 ### Results
-
-<table border=1>
-<tr>
-<td>
+1. 
 <img src="../results/image1/hybrid_image_scales.jpg" width="24%"/>
-</td>
-</tr>
+<img src="../results/image1/high_frequencies.jpg" width="24%"/>
+<img src="../results/image1/low_frequencies.jpg" width="24%"/>
 
-<tr>
-<td>
+2.
 <img src="../results/image2/hybrid_image_scales.jpg" width="24%"/>
-</td>
-</tr>
-
-</table>
+<img src="../results/image2/high_frequencies.jpg" width="24%"/>
+<img src="../results/image2/low_frequencies.jpg" width="24%"/>
